@@ -15,6 +15,7 @@ resource "aci_vrf" "main" {
 resource "aci_bridge_domain" "bd_192_168_1_0" {
   tenant_dn                = aci_tenant.terraform_tenant.id
   name                     = "192.168.1.0_24_bd"
+  arp_flood                = "yes"
   relation_fv_rs_ctx       = aci_vrf.main.id
   relation_fv_rs_bd_to_out = [module.core_l3out.id]
 }
