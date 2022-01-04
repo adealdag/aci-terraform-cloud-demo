@@ -1,0 +1,30 @@
+# This policy uses the Sentinel tfplan/v2 import to verify if the 
+# forwarding golden rules are satisfied
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+# Get all Bridge Domains
+allBDs = plan.find_resources("aci_bridge_domain")
+
+# Filter to Bridge Domains with ARP Flooding disabled
+# Default is "no", hence filtering by value different than "yes"
+no_arp_flooding_bds = plan.filter_attribute_is_not_value(allBDs, "arp_flood", "yes", true)
+
+# Filter to Bridge Domains with Unicast Routing disabled
+# Default is "yes", hence filtering by value equal to "no"
+no_unicast_route_bds = plan.filter_attribute_is_value(allBDs, "unicast_route", "no", true)
+
+# Rules
+
+# ARP Flooding must be enabled
+arp_flood_validated = length(no_arp_flooding_bds["messages"]) is 0
+
+# Unicast Routing must be enabled
+unicast_route_validated = length(no_unicast_route_bds["messages"]) is 0
+
+
+main = rule {
+    arp_flood_validated and unicast_route_validated
+}

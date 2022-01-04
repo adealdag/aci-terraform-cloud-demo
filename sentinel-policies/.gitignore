@@ -1,0 +1,8 @@
+# Local .sentinel directories
+**/.sentinel/*
+
+# Mocks folder
+**/mocks/**
+
+# Log files
+*.log
