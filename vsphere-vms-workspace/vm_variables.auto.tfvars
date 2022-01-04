@@ -1,6 +1,6 @@
 aci_app_info = {
   app_name    = "demo_app"
-  tenant_name = "ndo_demo_tn"
+  tenant_name = "tf_demo_test_tn"
 }
 
 vm_location = {
