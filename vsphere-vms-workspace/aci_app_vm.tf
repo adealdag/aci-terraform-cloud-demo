@@ -5,7 +5,7 @@ data "terraform_remote_state" "aci_fabric" {
   config = {
     organization = "cisco-dcn-ecosystem"
     workspaces = {
-      name = "adealdag-tfc-demo-vmw-workspace"
+      name = "adealdag-tfc-demo-aci-workspace"
     }
   }
 }
