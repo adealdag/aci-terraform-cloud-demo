@@ -7,7 +7,7 @@ data "aci_vmm_domain" "vmmdom" {
 # App Profile Definition
 resource "aci_application_profile" "app_demo" {
   tenant_dn = aci_tenant.terraform_tenant.id
-  name      = "demo_app"
+  name      = "test_app"
 }
 
 # EPG Definitions
