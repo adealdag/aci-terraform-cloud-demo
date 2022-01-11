@@ -1,6 +1,6 @@
 ### Tenant Definition
 resource "aci_tenant" "terraform_tenant" {
-  name = "tf_demo_test_tn"
+  name = "tf_demo_tn"
 }
 
 ### Networking Definition
