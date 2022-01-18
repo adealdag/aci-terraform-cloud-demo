@@ -98,7 +98,7 @@ module "core_l3out" {
       bgp_peers = {
         "key" = {
           peer_ip_addr     = "172.16.23.9"
-          peer_asn         = "65020"
+          peer_asn         = "65023"
           addr_family_ctrl = "af-ucast"
           bgp_ctrl         = "send-com,send-ext-com"
         }
@@ -119,7 +119,7 @@ module "core_l3out" {
       bgp_peers = {
         "key" = {
           peer_ip_addr     = "172.16.23.13"
-          peer_asn         = "65020"
+          peer_asn         = "65023"
           addr_family_ctrl = "af-ucast"
           bgp_ctrl         = "send-com,send-ext-com"
         }
